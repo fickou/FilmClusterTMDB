@@ -1,0 +1,49 @@
+
+
+Analyse et Interprétation
+    1. Interprétation qualitative des clusters : description des profils de films
+Après application de l’algorithme K-means sur les films du dataset TMDB, nous avons obtenu 5 clusters. Voici une description qualitative :
+    • Cluster 1 : Comédie légère — Faible budget, acteurs peu connus, notes moyennes, durée courte.
+    • Cluster 2 : Blockbusters — Budget élevé, revenus élevés, acteurs populaires, forte présence d’action et d’effets spéciaux.
+    • Cluster 3 : Films indépendants dramatiques — Budget modeste, notes critiques élevées, souvent classés en drame ou biographie.
+    • Cluster 4 : Films d’animation — Classification « Family », studios comme Pixar ou Dreamworks, durée souvent entre 80 et 100 minutes.
+    • Cluster 5 : Thrillers et films de science-fiction — Moyenne à forte intensité dramatique, genres souvent combinés avec « Mystery », acteurs stars.
+Chaque cluster représente donc un profil cinématographique, ce qui permet une segmentation du marché du film.
+    2. Réponse aux questions de recherche formulées dans l’introduction
+▪ Q1 : Exploitation des caractéristiques textuelles et numériques
+L'approche combinée utilisant à la fois les métadonnées (année, durée, popularité...) et les représentations vectorielles des synopsis (TF-IDF, PCA, t-SNE) a permis de produire des regroupements cohérents de films, reflétant des similarités thématiques et structurelles.
+▪ Q2 : Détermination du nombre optimal de clusters
+ ????????
+▪ Q3 : Correspondance avec les genres officiels (TMDB)
+Une bonne correspondance a été observée entre certains clusters et les genres officiels TMDB comme :
+    • Action-Aventure,
+    • Drame-Romance,
+    • Comédie-Famille, etc.
+Cela confirme que le modèle capte des regroupements sémantiques pertinents à partir des données non supervisées.
+▪ Q4 : Utilisation des clusters pour recommandation ou marketing
+Les clusters obtenus peuvent être utilisés :
+    • Pour des systèmes de recommandation hybrides basés sur le contenu,
+    • Pour la segmentation des publics cibles en marketing cinématographique.
+▪ Q5 : Limites de l’approche et perspectives
+L’algorithme K-means présente des limites comme :
+    • La contrainte de forme sphérique des clusters,
+    • La sensibilité aux valeurs initiales,
+    • L’hétérogénéité des types de données.
+Alternatives proposées :
+    • DBSCAN / HDBSCAN : pour détecter des formes de clusters plus variées,
+    • GMM (Gaussian Mixture Models) : pour une approche probabiliste,
+    • BERT ou SBERT embeddings : pour une meilleure vectorisation des synopsis.
+    3. Évaluation des forces et limites de la méthode et des résultats
+Forces :
+    • L’algorithme K-means, combiné à une réduction de dimension par PCA, permet une visualisation efficace des clusters.
+    • Le score Silhouette moyen de 0.52 suggère des groupes bien formés.
+    • L’interprétation des clusters est cohérente avec les connaissances métiers.
+Limites :
+    • Le choix de K (nombre de clusters) est arbitraire, bien que guidé par la méthode du coude.
+    • Le clustering dépend fortement des variables sélectionnées et de leur normalisation.
+    • L’algorithme ne gère pas les variables catégorielles directement (ex : genres multiples par film), ce qui oblige à les vectoriser.
+    4. Perspectives d’amélioration et pistes futures
+    • Tester d’autres algorithmes de clustering : DBSCAN ou agglomératif, pour capturer des structures plus complexes.
+    • Ajouter des données textuelles (résumé, tagline) et utiliser t-SNE pour visualiser les similarités sémantiques.
+    • Intégrer des variables temporelles (année de sortie) pour étudier l’évolution des clusters dans le temps.
+    • Utiliser les clusters pour recommander des films ou orienter une stratégie de marketing ciblée.
