@@ -286,5 +286,3 @@ for cluster_id in range(nombre_clusters):
 # 
 # *   **Cluster 3 :** Ce cluster semble dominé par les films d'action, d'aventure et de science-fiction, avec une concentration de grandes franchises comme James Bond ("Spectre"), DC Comics ("Batman v Superman: Dawn of Justice") et Jurassic Park ("Jurassic World"). Ces films sont probablement caractérisés par des budgets importants et des effets spéciaux.
 # 
-
-
