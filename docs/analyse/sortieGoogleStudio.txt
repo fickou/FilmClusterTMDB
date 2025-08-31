@@ -1,0 +1,20 @@
+1. Analyse du Graphique ACP (Analyse en Composantes Principales)
+Objectif de l'ACP
+L'ACP réduit la dimensionnalité en projetant les données sur les axes qui capturent le plus de variance (la "dispersion" globale des données). C'est une méthode linéaire.
+Interprétation
+Chevauchement Important des Clusters : Le point le plus visible est que les clusters 0 (bleu), 1 (orange), et 3 (rouge) sont fortement mélangés. Il est difficile de distinguer visuellement ces groupes. Le cluster 2 (vert) est un peu plus concentré, mais toujours avec un chevauchement notable.
+Signification du Chevauchement : Cela signifie que les caractéristiques qui séparent ces clusters sont complexes et non-linéaires. Une simple projection sur les deux axes de plus grande variance n'est pas suffisante pour les distinguer. Si votre clustering était basé uniquement sur des différences simples comme "budget élevé vs. budget bas", l'ACP aurait probablement montré une meilleure séparation.
+Position des Centroïdes : Les centroïdes (croix rouges) sont situés au cœur des nuages de points les plus denses. Leur proximité relative (surtout pour les clusters 0, 2 et 3) confirme que, d'un point de vue linéaire, ces groupes sont difficiles à séparer.
+Conclusion pour l'ACP : Seul, ce graphique pourrait laisser penser que le clustering est médiocre. Cependant, il nous informe surtout que les relations entre les films sont trop complexes pour être représentées par une simple transformation linéaire en 2D.
+2. Analyse du Graphique t-SNE
+Objectif du t-SNE
+Le t-SNE est une technique non-linéaire conçue pour la visualisation. Son but est de préserver les relations de "voisinage" : les points proches dans l'espace de haute dimension d'origine restent proches dans la projection 2D.
+Interprétation
+Séparation Nette et Impressionnante : Le résultat est spectaculaire. Les quatre clusters forment des groupes distincts et très bien séparés. Il n'y a quasiment aucun chevauchement. C'est le signe d'un clustering de haute qualité.
+Validation Forte du Modèle K-Means : Cette visualisation confirme que votre modèle a bien fonctionné. Dans l'espace original à plusieurs centaines de dimensions (caractéristiques numériques + embeddings), les films d'un même cluster sont effectivement beaucoup plus proches entre eux qu'ils ne le sont des films des autres clusters. Le t-SNE a réussi à "déplier" ces relations complexes pour les rendre visibles en 2D.
+Formes et Distances : Il est crucial de noter que la forme, la taille et la distance relative entre les clusters sur un graphique t-SNE ne doivent pas être sur-interprétées. Les formes allongées et incurvées sont des artefacts de l'algorithme. L'information clé est la séparation des groupes.
+Position des Centroïdes : Un point particulièrement intéressant sur ce graphique est la position des centroïdes (croix rouges), qui sont très éloignés de leurs nuages de points respectifs. Cela suggère que les centroïdes (qui sont les "centres de gravité" dans l'espace de haute dimension) ont été projetés dans l'espace t-SNE après l'entraînement du modèle sur les points de données. Leur position éloignée confirme qu'ils représentent des centres distincts dans l'espace original, même si leur projection 2D est décalée.
+Synthèse et Conclusion Finale
+La comparaison de ces deux visualisations raconte une histoire cohérente et positive sur votre travail :
+L'échec de l'ACP à séparer les clusters prouve que les relations entre les caractéristiques des films (budget, popularité, genre, sémantique du synopsis, etc.) sont complexes et non-linéaires.
+Le succès éclatant du t-SNE à séparer les clusters prouve que votre modèle K-Means a parfaitement capturé ces relations complexes pour former des groupes statistiquement robustes et significatifs.
